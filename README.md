@@ -30,7 +30,10 @@ CMD ["/workspace/main"]
 ```
 go mod And gen main cmd:
 ```
-docker run --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go build -mod=vendor -o /workspace/main /workspace/fortest.go 
+docker run --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod init
+docker run --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod tidy
+docker run --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod vendor
+docker run --rm -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go build -mod=vendor -o /workspace/main /workspace/fortest.go 
 ```
 build app's image And run:
 ```
