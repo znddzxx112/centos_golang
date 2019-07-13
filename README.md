@@ -30,10 +30,10 @@ CMD ["/workspace/main"]
 ```
 go mod And gen main cmd:
 ```
-docker run --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod init
-docker run --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod tidy
-docker run --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod vendor
-docker run --rm -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go build -mod=vendor -o /workspace/main /workspace/fortest.go 
+docker run --rm -v ~/gopath:/gopath -v ~/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod init
+docker run --rm -v ~/gopath:/gopath -v ~/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod tidy
+docker run --rm -v ~/gopath:/gopath -v ~/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go mod vendor
+docker run --rm -v ~/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go build -mod=vendor -o /workspace/main /workspace/fortest.go 
 ```
 build app's image And run:
 ```
@@ -42,5 +42,5 @@ docker run -d --net=host --name fortest_20190706 fortest:20190706
 ```
 dev or debug:
 ```
-docker run -it --net=host --name fortest_debug --rm -v /home/znddzxx112/gopath:/gopath -v /home/znddzxx112/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go run /workspace/fortest.go
+docker run -it --net=host --name fortest_debug --rm -v ~/gopath:/gopath -v ~/workspace/znddzxx112/fortest:/workspace centos7_golang:1.12.1 /go/bin/go run /workspace/fortest.go
 ```
